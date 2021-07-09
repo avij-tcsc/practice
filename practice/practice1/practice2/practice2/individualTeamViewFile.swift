@@ -14,7 +14,8 @@ class IndividualTeamView: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var teamName: UILabel!
-    var players : [String] = ["Point Guard", "Shooting Guard", "Small Forward", "Power Forward", "Center"]
+    var players = ["Point Guard", "Shooting Guard", "Small Forward", "Power Forward", "Center"]
+    var name = "Name"
 
     var teams = ["Atlanta Hawks",
                  "Boston Celtics",
@@ -52,13 +53,12 @@ class IndividualTeamView: UIViewController {
     @IBOutlet weak var powerForward: UILabel!
     @IBOutlet weak var center: UILabel!
     @IBOutlet weak var team: UILabel!
-    override func viewDidLoad() {
+    override func viewWillAppear(_ animated: Bool) {
         pointGuard.text = players[0]
         shootingGuard.text = players[1]
         smallForward.text = players[2]
         powerForward.text = players[3]
         center.text = players[4]
-        team.text = 
+        team.text = name
     }
-    
 }

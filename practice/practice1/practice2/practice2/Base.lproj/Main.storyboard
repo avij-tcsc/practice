@@ -196,9 +196,9 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEAM NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEW-pj-JA5">
-                                <rect key="frame" x="115" y="72" width="170" height="36"/>
+                                <rect key="frame" x="115" y="72" width="243" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -311,6 +311,7 @@
                         <outlet property="powerForward" destination="idE-Gb-AwZ" id="Z0s-HQ-0nb"/>
                         <outlet property="shootingGuard" destination="HCn-eK-32M" id="kDA-w9-F8I"/>
                         <outlet property="smallForward" destination="E0x-ke-6mO" id="WnB-A2-pQE"/>
+                        <outlet property="team" destination="uEW-pj-JA5" id="ktV-qv-8sr"/>
                         <outlet property="teamName" destination="uEW-pj-JA5" id="etF-Ya-Ozt"/>
                     </connections>
                 </viewController>
