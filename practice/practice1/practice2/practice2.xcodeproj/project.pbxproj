@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4419C4C626DAD0D800421321 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419C4C526DAD0D800421321 /* ScheduleCell.swift */; };
 		44729FBC26507A7200AC47A2 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44729FBB26507A7200AC47A2 /* TeamCell.swift */; };
+		448582FE26CF382A0012FDB7 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448582FD26CF382A0012FDB7 /* ScheduleViewController.swift */; };
 		44C8D2742662D0250018D906 /* TeamTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D2732662D0250018D906 /* TeamTableController.swift */; };
+		44D824CC26ACC24F004CA0D2 /* ManagementTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D824CB26ACC24F004CA0D2 /* ManagementTabBar.swift */; };
 		44EC4A08264A00D5000C037D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EC4A07264A00D5000C037D /* AppDelegate.swift */; };
 		44EC4A0A264A00D5000C037D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EC4A09264A00D5000C037D /* SceneDelegate.swift */; };
 		44EC4A0C264A00D5000C037D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EC4A0B264A00D5000C037D /* HomeViewController.swift */; };
@@ -18,6 +21,8 @@
 		44EC4A1F264A00D6000C037D /* practice2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EC4A1E264A00D6000C037D /* practice2Tests.swift */; };
 		44EC4A2A264A00D6000C037D /* practice2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EC4A29264A00D6000C037D /* practice2UITests.swift */; };
 		44EC4A38264A079B000C037D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EC4A37264A079B000C037D /* SecondViewController.swift */; };
+		44F49D0D26BCC29200D0E395 /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F49D0C26BCC29200D0E395 /* RosterViewController.swift */; };
+		44F49D0F26BCCE5C00D0E395 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F49D0E26BCCE5C00D0E395 /* PlayerCell.swift */; };
 		44FBA4A8268D0B9200CAFBF6 /* individualTeamViewFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44FBA4A7268D0B9200CAFBF6 /* individualTeamViewFile.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,8 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4419C4C526DAD0D800421321 /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		44729FBB26507A7200AC47A2 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		448582FD26CF382A0012FDB7 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		44C8D2732662D0250018D906 /* TeamTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableController.swift; sourceTree = "<group>"; };
+		44D824CB26ACC24F004CA0D2 /* ManagementTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementTabBar.swift; sourceTree = "<group>"; };
 		44EC4A04264A00D5000C037D /* practice2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practice2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44EC4A07264A00D5000C037D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44EC4A09264A00D5000C037D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +64,8 @@
 		44EC4A29264A00D6000C037D /* practice2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practice2UITests.swift; sourceTree = "<group>"; };
 		44EC4A2B264A00D6000C037D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44EC4A37264A079B000C037D /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		44F49D0C26BCC29200D0E395 /* RosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
+		44F49D0E26BCCE5C00D0E395 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		44FBA4A7268D0B9200CAFBF6 /* individualTeamViewFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = individualTeamViewFile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +97,8 @@
 		44EC49FB264A00D5000C037D = {
 			isa = PBXGroup;
 			children = (
+				448582FD26CF382A0012FDB7 /* ScheduleViewController.swift */,
+				4419C4C526DAD0D800421321 /* ScheduleCell.swift */,
 				44EC4A06264A00D5000C037D /* practice2 */,
 				44EC4A1D264A00D6000C037D /* practice2Tests */,
 				44EC4A28264A00D6000C037D /* practice2UITests */,
@@ -111,6 +123,7 @@
 				44EC4A09264A00D5000C037D /* SceneDelegate.swift */,
 				44EC4A0B264A00D5000C037D /* HomeViewController.swift */,
 				44729FBB26507A7200AC47A2 /* TeamCell.swift */,
+				44F49D0E26BCCE5C00D0E395 /* PlayerCell.swift */,
 				44EC4A37264A079B000C037D /* SecondViewController.swift */,
 				44EC4A0D264A00D5000C037D /* Main.storyboard */,
 				44FBA4A7268D0B9200CAFBF6 /* individualTeamViewFile.swift */,
@@ -118,6 +131,8 @@
 				44EC4A12264A00D6000C037D /* LaunchScreen.storyboard */,
 				44EC4A15264A00D6000C037D /* Info.plist */,
 				44C8D2732662D0250018D906 /* TeamTableController.swift */,
+				44D824CB26ACC24F004CA0D2 /* ManagementTabBar.swift */,
+				44F49D0C26BCC29200D0E395 /* RosterViewController.swift */,
 			);
 			path = practice2;
 			sourceTree = "<group>";
@@ -270,13 +285,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D824CC26ACC24F004CA0D2 /* ManagementTabBar.swift in Sources */,
 				44EC4A0C264A00D5000C037D /* HomeViewController.swift in Sources */,
 				44EC4A38264A079B000C037D /* SecondViewController.swift in Sources */,
 				44FBA4A8268D0B9200CAFBF6 /* individualTeamViewFile.swift in Sources */,
+				44F49D0F26BCCE5C00D0E395 /* PlayerCell.swift in Sources */,
 				44729FBC26507A7200AC47A2 /* TeamCell.swift in Sources */,
 				44EC4A08264A00D5000C037D /* AppDelegate.swift in Sources */,
 				44EC4A0A264A00D5000C037D /* SceneDelegate.swift in Sources */,
 				44C8D2742662D0250018D906 /* TeamTableController.swift in Sources */,
+				448582FE26CF382A0012FDB7 /* ScheduleViewController.swift in Sources */,
+				4419C4C626DAD0D800421321 /* ScheduleCell.swift in Sources */,
+				44F49D0D26BCC29200D0E395 /* RosterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
