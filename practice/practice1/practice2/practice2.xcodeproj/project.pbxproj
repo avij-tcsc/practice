@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		4419C4C626DAD0D800421321 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419C4C526DAD0D800421321 /* ScheduleCell.swift */; };
 		44729FBC26507A7200AC47A2 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44729FBB26507A7200AC47A2 /* TeamCell.swift */; };
+		44833EEB275C112700C194E2 /* settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44833EEA275C112700C194E2 /* settings.swift */; };
 		448582FE26CF382A0012FDB7 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448582FD26CF382A0012FDB7 /* ScheduleViewController.swift */; };
+		44A9E9D0276E89B900773979 /* RosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A9E9CF276E89B900773979 /* RosterCell.swift */; };
 		44C8D2742662D0250018D906 /* TeamTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C8D2732662D0250018D906 /* TeamTableController.swift */; };
 		44D824CC26ACC24F004CA0D2 /* ManagementTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D824CB26ACC24F004CA0D2 /* ManagementTabBar.swift */; };
 		44EC4A08264A00D5000C037D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44EC4A07264A00D5000C037D /* AppDelegate.swift */; };
@@ -46,7 +48,9 @@
 /* Begin PBXFileReference section */
 		4419C4C526DAD0D800421321 /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		44729FBB26507A7200AC47A2 /* TeamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		44833EEA275C112700C194E2 /* settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settings.swift; sourceTree = "<group>"; };
 		448582FD26CF382A0012FDB7 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
+		44A9E9CF276E89B900773979 /* RosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterCell.swift; sourceTree = "<group>"; };
 		44C8D2732662D0250018D906 /* TeamTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableController.swift; sourceTree = "<group>"; };
 		44D824CB26ACC24F004CA0D2 /* ManagementTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementTabBar.swift; sourceTree = "<group>"; };
 		44EC4A04264A00D5000C037D /* practice2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = practice2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				448582FD26CF382A0012FDB7 /* ScheduleViewController.swift */,
+				44833EEA275C112700C194E2 /* settings.swift */,
 				4419C4C526DAD0D800421321 /* ScheduleCell.swift */,
 				44EC4A06264A00D5000C037D /* practice2 */,
 				44EC4A1D264A00D6000C037D /* practice2Tests */,
@@ -126,6 +131,7 @@
 				44F49D0E26BCCE5C00D0E395 /* PlayerCell.swift */,
 				44EC4A37264A079B000C037D /* SecondViewController.swift */,
 				44EC4A0D264A00D5000C037D /* Main.storyboard */,
+				44A9E9CF276E89B900773979 /* RosterCell.swift */,
 				44FBA4A7268D0B9200CAFBF6 /* individualTeamViewFile.swift */,
 				44EC4A10264A00D6000C037D /* Assets.xcassets */,
 				44EC4A12264A00D6000C037D /* LaunchScreen.storyboard */,
@@ -288,6 +294,8 @@
 				44D824CC26ACC24F004CA0D2 /* ManagementTabBar.swift in Sources */,
 				44EC4A0C264A00D5000C037D /* HomeViewController.swift in Sources */,
 				44EC4A38264A079B000C037D /* SecondViewController.swift in Sources */,
+				44833EEB275C112700C194E2 /* settings.swift in Sources */,
+				44A9E9D0276E89B900773979 /* RosterCell.swift in Sources */,
 				44FBA4A8268D0B9200CAFBF6 /* individualTeamViewFile.swift in Sources */,
 				44F49D0F26BCCE5C00D0E395 /* PlayerCell.swift in Sources */,
 				44729FBC26507A7200AC47A2 /* TeamCell.swift in Sources */,

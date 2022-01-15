@@ -10,19 +10,62 @@ class ScheduleViewController : UIViewController, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         schedule.count
     }
-    let teamName = "Warriors"
+    // returns an integer from 1 - 7, with 1 being Sunday and 7 being Saturday
+
+    func getDayOfWeek(_ today:String) -> String {
+        let formatter  = DateFormatter()
+        var dayWeek = ""
+        formatter.dateFormat = "yyyyMMdd"
+        guard let todayDate = formatter.date(from: today) else { return dayWeek }
+        let myCalendar = Calendar(identifier: .gregorian)
+        let weekDay = myCalendar.component(.weekday, from: todayDate)
+        if weekDay == 1 {
+            dayWeek = "Sunday"
+        }
+        if weekDay == 2 {
+            dayWeek = "Monday"
+        }
+        if weekDay == 3 {
+            dayWeek = "Tuesday"
+        }
+        if weekDay == 4 {
+            dayWeek = "Wednesday"
+        }
+        if weekDay == 5 {
+            dayWeek = "Thursday"
+        }
+        if weekDay == 6 {
+            dayWeek = "Friday"
+        }
+        if weekDay == 7 {
+            dayWeek = "Saturday"
+        }
+        return dayWeek
+    }
+    @IBOutlet weak var teamTop: UILabel!
+    @IBOutlet weak var record: UILabel!
+    let teamName = selectedTeamName
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell") as? ScheduleCell
         var opponent = schedule[indexPath.row].opponent
         let day = schedule[indexPath.row].day
         let final = schedule[indexPath.row].final
         let offday = schedule[indexPath.row].offday
+        let hasFinal = schedule[indexPath.row].hasFinal
+        let textColor = schedule[indexPath.row].textColor
+        if hasFinal == true {
+            cell?.simulateOption.isHidden = true
+        }
+        if hasFinal == false {
+            cell?.simulateOption.isHidden = false
+        }
         if offday == true {
             opponent = "Practice"
         }
         cell?.opponent.text = opponent
         cell?.day.text = day
         cell?.result.text = final
+        cell?.result.textColor = textColor
         cell?.simulateOption.addTarget(self, action: "simulatePress:", for: .touchUpInside)
         cell?.simulateOption.tag=indexPath.row
         return cell ?? ScheduleCell()
@@ -37,11 +80,15 @@ class ScheduleViewController : UIViewController, UITableViewDelegate, UITableVie
             return UIColor(red: 34/255, green: 200/255, blue: 34/255, alpha: 1.0)
         }
     }
+    var wins = 0
+    var losses = 0
     func getResult(team1Final : Int, team2Final : Int) -> String {
         if team1Final < team2Final {
+            losses+=1
             return "L  "
         }
         else{
+            wins+=1
             return "W  "
         }
     }
@@ -85,42 +132,47 @@ class ScheduleViewController : UIViewController, UITableViewDelegate, UITableVie
         return [team1Final, team2Final]
     }
     override func viewWillAppear(_ animated: Bool) {
-        let url = URL(string: "https://data.nba.net/json/cms/2019/team/warriors/schedule.json")!
-        var schedule : [Game]
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            guard let data = data else { return }
-            let temp = String(data: data, encoding: .utf8)!
-            let json = try? JSONSerialization.jsonObject(with: data) as! NSDictionary
-            let sportsContent = json!["sports_content"] as! NSDictionary
-            let game = sportsContent["game"] as! [NSDictionary]
-            var updatedSchedule : [Game] = []
-            for scheduleGame in game{
-            let home = scheduleGame["home"] as! NSDictionary
-            let homeNickname = home["nickname"] as! String
-            let visitor = scheduleGame["visitor"] as! NSDictionary
-            let visitorNickname = visitor["nickname"] as! String
-            print("finished")
-            var opponent1 = ""
-            if (self.teamName == homeNickname){
-                opponent1 = visitorNickname
+        teamTop.text = selectedTeamName
+        guard schedule.count == 0
+        else{
+            return}
+            let url = URL(string: "https://data.nba.net/json/cms/2019/team/\(selectedTeamName.lowercased())/schedule.json")!
+            let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+                guard let data = data else { return }
+                let temp = String(data: data, encoding: .utf8)!
+                let json = try? JSONSerialization.jsonObject(with: data) as! NSDictionary
+                let sportsContent = json!["sports_content"] as! NSDictionary
+                let game = sportsContent["game"] as! [NSDictionary]
+                var updatedSchedule : [Game] = []
+                let regSzn = Array(game.dropFirst(5))
+                for scheduleGame in regSzn{
+                let home = scheduleGame["home"] as! NSDictionary
+                let homeNickname = home["nickname"] as! String
+                let visitor = scheduleGame["visitor"] as! NSDictionary
+                let visitorNickname = visitor["nickname"] as! String
+                print("finished")
+                let date = scheduleGame["date"] as! String
+                var opponent1 = ""
+                if (self.teamName == homeNickname){
+                    opponent1 = visitorNickname
+                }
+                else{
+                    opponent1 = homeNickname
+                }
+                    var updatedGame = Game.init(offday: false, opponent: opponent1, day: self.getDayOfWeek(date), final: "", hasFinal: false)
+                updatedSchedule.append(updatedGame)
+                }
+                schedule = updatedSchedule
+                DispatchQueue.main.async{
+                    self.scheduleTableView.reloadData()
+                }
             }
-            else{
-                opponent1 = homeNickname
-            }
-            var updatedGame = Game.init(offday: false, opponent: opponent1, day: "Monday", final: "", hasFinal: false)
-            updatedSchedule.append(updatedGame)
-            }
-            self.schedule = updatedSchedule
-            DispatchQueue.main.async{
-                self.scheduleTableView.reloadData()
-            }
-        }
-
-        task.resume()
+            task.resume()
+        
     }
+    
     @IBOutlet weak var scheduleTableView: UITableView!
     // array of arrays of teams opponents will face by week
-    var schedule : [Game] = []
     //Game.init(opponent: "opponent1", day: "Monday", final: ""), Game.init(offday: true, day: "Tuesday"), Game.init(opponent: "Knicks", day: "Wednesday", final: ""), Game.init(opponent: "Warriors", day: "Saturday", final: "")
     // var team 1 = 0.5 * (ratings[0] + ratings[1] + ratings[2] + ratings[3] + ratings[4]) + 0.3 * (ratings[5] + ratings[6] + ratings[7] + ratings[8] + ratings[9]) + 0.1 * (ratings[10] + ratings[11] + ratings[12] + ratings[
     //team 1: rating of 0.5(PG + SG + SF + PF + C) + 0.3(pg + sg + sf + pf + c) + 0.1(10 + 11 + 12 + 13 + 14 + 15)
@@ -139,23 +191,22 @@ class ScheduleViewController : UIViewController, UITableViewDelegate, UITableVie
     @IBAction func simulatePress(_ sender: UIButton) {
         for index in 0...sender.tag {
             if schedule[index].hasFinal == false {
-                let result = scheduleTableView.cellForRow(at: IndexPath(row: index, section: 0)) as? ScheduleCell
                 var scores = simulateGame(team1: team1, team2: team2)
                 var final = "\(scores[0]) - \(scores[1])"
-                if (result != nil){
                     var finalText = getResult(team1Final: scores[0], team2Final: scores[1]) + final
-                    result!.result.text = finalText
-                    result!.result.textColor = getResultColor(team1Final: scores[0], team2Final: scores[1])
-                    result!.simulateOption.isHidden = true
+                    var resultColor = getResultColor(team1Final: scores[0], team2Final: scores[1])
                     schedule[index].hasFinal = true
                     schedule[index].final = finalText
-                }
+                    schedule[index].textColor = resultColor
                 
             }
         }
+        scheduleTableView.reloadData()
+        var win = String(wins)
+        var loss = String(losses)
+        record.text = "\(win)-\(loss)"
     }
 }
-
 struct Game {
     var offday = false
     var opponent = ""
@@ -163,6 +214,7 @@ struct Game {
     var final = ""
     var hasFinal = false
     var win = true
+    var textColor = UIColor.red
 }
 
 struct ScheduleGame {

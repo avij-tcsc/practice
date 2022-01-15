@@ -82,8 +82,12 @@ class IndividualTeamView: UIViewController {
         team.text = name
     }
     @IBAction func selectTeamButton(_ sender: Any) {
-        let alert = UIAlertController(title: "TeamCheck", message: "Are you sure you want to select the \(name)?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {_ in self.performSegue(withIdentifier: "popUpToTabSegue", sender: self)
+        let alert = UIAlertController(title: selectedTeamName, message: "Are you sure you want to select the \(name)?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {_ in
+            selectedTeamName = self.name
+            teamPlayers = self.players
+            self.performSegue(withIdentifier: "popUpToTabSegue", sender: self)
+            
             
         }))
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: {_ in alert.dismiss(animated: true, completion: nil)

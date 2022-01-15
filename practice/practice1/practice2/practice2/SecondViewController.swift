@@ -7,8 +7,8 @@
 import UIKit
 import Foundation
 
-class SecondViewController: TeamTableController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         30
     }
     var teams = ["Hawks",
@@ -51,7 +51,7 @@ class SecondViewController: TeamTableController {
         ]
     var playerAges = ["30"]
     @IBOutlet weak var TeamTable: UITableView!
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TeamCell") as? TeamCell
         let salaryCapLabel = salaryCaps[indexPath.row]
         let teamLabel = teams[indexPath.row]
@@ -60,15 +60,19 @@ class SecondViewController: TeamTableController {
         return cell ?? TeamCell()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let index = TeamTable.indexPathForSelectedRow!.row
-        let selectedRoster = self.teams[index]
-        if segue.identifier == "individualTeamSegue" {
+        let index = TeamTable.indexPathForSelectedRow?.row
+        if (index != nil){
+            let selectedRoster = self.teams[index!]
+            if segue.identifier == "individualTeamSegue" {
             let individualTeamView = segue.destination as! IndividualTeamView
-            individualTeamView.players = playersOnTeams[index]
-            individualTeamView.name = selectedRoster
+            individualTeamView.players = playersOnTeams[index!]
+                individualTeamView.name = selectedRoster
+        }
         }
     }
     @IBOutlet weak var secondViewTable: UITableView!
+    @IBAction func backButton(_ sender: UIButton) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
